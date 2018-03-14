@@ -1,0 +1,7 @@
+E:\Программирование\1.2. Классы и коллекции. Библиотеки FCL\Wrapper\Wrapper\bin\Debug\Wrapper.exe.config
+E:\Программирование\1.2. Классы и коллекции. Библиотеки FCL\Wrapper\Wrapper\bin\Debug\Wrapper.exe
+E:\Программирование\1.2. Классы и коллекции. Библиотеки FCL\Wrapper\Wrapper\bin\Debug\Wrapper.pdb
+E:\Программирование\1.2. Классы и коллекции. Библиотеки FCL\Wrapper\Wrapper\obj\Debug\Wrapper.csprojResolveAssemblyReference.cache
+E:\Программирование\1.2. Классы и коллекции. Библиотеки FCL\Wrapper\Wrapper\obj\Debug\Wrapper.csproj.CoreCompileInputs.cache
+E:\Программирование\1.2. Классы и коллекции. Библиотеки FCL\Wrapper\Wrapper\obj\Debug\Wrapper.exe
+E:\Программирование\1.2. Классы и коллекции. Библиотеки FCL\Wrapper\Wrapper\obj\Debug\Wrapper.pdb

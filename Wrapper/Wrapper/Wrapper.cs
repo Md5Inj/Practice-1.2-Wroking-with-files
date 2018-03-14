@@ -8,54 +8,91 @@ namespace Wrapper
     {
         private LinkedList<Person> List;
 
-        Wrapper() // Default constructor
+        public Wrapper() // Default constructor
         {
-            List.Clear();
+            List = new LinkedList<Person>();
         }
 
-        void Insert(Person p) // Inserting element into end of list
+        public void Insert(Person p) // Inserting element into end of list
         {
             List.AddLast(p);
         }
 
-        void Remove()
+        public void Remove()
         {
             List.Remove(List.First);
         }
 
-        void Change(Person what, Person whom)
+        public void Change(Person what, Person whom)
         {
             List.Find(what).Value = whom;
         }
 
-        Person GetValue()
+        public Person GetValue()
         {
             return List.First.Value;
         }
 
-        LinkedListNode<Person> GetFirst()
+        public LinkedListNode<Person> GetFirst()
         {
             return List.First;
         }
 
-        LinkedListNode<Person> GetLast()
+        public LinkedListNode<Person> GetLast()
         {
             return List.Last;
         }
 
-        LinkedListNode<Person> GetNext(LinkedListNode<Person> now)
+        public void Print()
+        {
+            int count = 0;
+            foreach (var item in List)
+            {
+                Console.WriteLine($"{count}:");
+                Console.WriteLine($"name: { item.Name }");
+                Console.WriteLine($"age: { item.Age }");
+                Console.WriteLine($"gender: { item.Gender }");
+                count++;
+            }
+        }
+
+        public LinkedListNode<Person> GetNext(LinkedListNode<Person> now)
         {
             return now.Next;
         }
 
-        LinkedListNode<Person> GetPrev(LinkedListNode<Person> now)
+        public LinkedListNode<Person> GetPrev(LinkedListNode<Person> now)
         {
             return now.Previous;
         }
 
-        void LoadFromFile(String fileName)
+        public void LoadFromFile(String fileName)
         {
+            FileStream file = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+            StreamReader reader = new StreamReader(file);
+            String line = "", age = "", gender = "";
 
+            while (true)
+            {
+                line = reader.ReadLine();
+                if (line == null) break;
+                age = reader.ReadLine();
+                gender = reader.ReadLine();
+                this.Insert(new Person(line, Convert.ToUInt32(age), gender[0]));
+            }
+        }
+
+        public void SaveToFile(String filename)
+        {
+            FileStream file = new FileStream(filename, FileMode.Append, FileAccess.Write);
+            StreamWriter writer = new StreamWriter(file);
+            foreach (var item in List)
+            {
+                writer.WriteLine(item.Name);
+                writer.WriteLine(item.Age);
+                writer.WriteLine(item.Gender);
+            }
+            writer.Close();
         }
     }
 }
