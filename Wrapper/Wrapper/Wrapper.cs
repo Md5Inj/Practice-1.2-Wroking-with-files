@@ -68,6 +68,7 @@ namespace Wrapper
 
         public void LoadFromFile(String fileName)
         {
+            this.List.Clear();
             FileStream file = new FileStream(fileName, FileMode.Open, FileAccess.Read);
             StreamReader reader = new StreamReader(file);
             String line = "", age = "", gender = "";
@@ -80,11 +81,13 @@ namespace Wrapper
                 gender = reader.ReadLine();
                 this.Insert(new Person(line, Convert.ToUInt32(age), gender[0]));
             }
+
+            reader.Close();
         }
 
         public void SaveToFile(String filename)
         {
-            FileStream file = new FileStream(filename, FileMode.Append, FileAccess.Write);
+            FileStream file = new FileStream(filename, FileMode.Create, FileAccess.Write);
             StreamWriter writer = new StreamWriter(file);
             foreach (var item in List)
             {
@@ -93,6 +96,17 @@ namespace Wrapper
                 writer.WriteLine(item.Gender);
             }
             writer.Close();
+        }
+
+        public Person getFromIndex(int index)
+        {
+            int count = 0;
+            foreach (var item in List)
+            {
+                if (count == index) return item;
+                count++;
+            }
+            return null;
         }
     }
 }

@@ -7,9 +7,7 @@ namespace Wrapper
     {
         static void Main(string[] args)
         {
-            Wrapper wrapper = new Wrapper();
-            wrapper.LoadFromFile("Info");
-            wrapper.Print();
+            MyApplication my = new MyApplication();
 
             Console.ReadKey();  
         }
